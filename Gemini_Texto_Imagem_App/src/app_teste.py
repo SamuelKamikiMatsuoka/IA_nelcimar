@@ -9,25 +9,23 @@ st.set_page_config(
     initial_sidebar_state="auto",
 )
 
-# Fundo personalizado com imagem via URL
-BACKGROUND_IMAGE_URL = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.reddit.com%2Fr%2Fwallpapers%2Fcomments%2F106ubm6%2Fdesktop_aesthetic_wallpaper_19201080%2F%3Ftl%3Dpt-br&psig=AOvVaw3nVCHjl7AB1gRVxxKvhgQd&ust=1746126985575000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJD3uYi8gI0DFQAAAAAdAAAAABAE"  # <-- troque aqui se quiser outro
-
+# Estilo customizado
 st.markdown(f"""
     <style>
     .stApp {{
-        background-image: url("{BACKGROUND_IMAGE_URL}");
+        background-image: url("https://i.ytimg.com/vi/MYPVQccHhAQ/maxresdefault.jpg");
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
     }}
-    .main {{
-        background-color: rgba(255, 255, 255, 0.9);
+    .main, .block-container {{
+        background-color: rgba(255, 255, 255, 0.3);  /* Fundo bem transparente */
         padding: 2rem;
         border-radius: 20px;
     }}
-    h1, h2, h3 {{
-        color: #4B0082;
-        text-shadow: 1px 1px 2px #ccc;
+    h1, h2, h3, p, label, .stMarkdown {{
+        color: #1a001f;  /* Texto mais escuro para contraste */
+        text-shadow: 1px 1px 1px #ffffff88;
     }}
     .stButton > button {{
         background-color: #4B0082;
@@ -36,15 +34,26 @@ st.markdown(f"""
         padding: 10px 24px;
         font-size: 16px;
         border: none;
+        transition: 0.3s;
+    }}
+    .stButton > button:hover {{
+        background-color: #370062;
     }}
     .stTextArea, .stTextInput {{
         border-radius: 8px !important;
+        background-color: #ffffffaa;
+        color: #000;
+    }}
+    .stRadio > div {{
+        background-color: #ffffffaa;
+        padding: 10px;
+        border-radius: 10px;
     }}
     </style>
 """, unsafe_allow_html=True)
 
 # Título
-st.markdown("# 🔥 WOLF GENERATOR")
+st.markdown("# 👑 WOLF GENERATOR")
 st.markdown("Gere **textos criativos** ou **imagens realistas** com inteligência artificial.")
 
 # Escolha entre texto ou imagem
@@ -65,7 +74,7 @@ if modo == "Texto":
 
 # Se for gerar imagem 
 else:
-    prompt = st.text_input("🎨 Descreva a imagem que deseja gerar:", placeholder="Ex: Extrela grande e luminosa no céu")
+    prompt = st.text_input("🎨 Descreva a imagem que deseja gerar:", placeholder="Ex: Estrela grande e luminosa no céu")
     if st.button("🖼️ Gerar Imagem"):
         if not prompt:
             st.warning("Por favor, descreva a imagem.")
