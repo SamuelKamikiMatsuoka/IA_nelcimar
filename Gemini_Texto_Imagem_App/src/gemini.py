@@ -8,8 +8,8 @@ import stability_sdk.interfaces.gooseai.generation.generation_pb2 as generation
 load_dotenv()
 
 # Configurar a chave da API do Gemini
-GEMINI_API_KEY = os.getenv("AIzaSyATq9A_9heVPutHyYmG9eoWQI7UwNztVZg")
-genai.configure(api_key="AIzaSyATq9A_9heVPutHyYmG9eoWQI7UwNztVZg")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+genai.configure(api_key=GEMINI_API_KEY)
 
 # Configurações do modelo Gemini
 generation_config = {
